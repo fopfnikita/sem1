@@ -1,1 +1,1 @@
-# sem1
+# proga1sem
