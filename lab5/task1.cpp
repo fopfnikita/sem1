@@ -1,29 +1,27 @@
 #include <iostream>
 #include <cstdlib>
-#include <vector>
+#include <queue>
 
 using namespace std;
 
 int main() 
 {
-	vector<int> stack;
-	int n = -1;
-	while(n != 0){
-		cin >> n;
-		if(n>0){
-			stack.push_back(n);
-		} else if(stack.size()>0){
-			if (-n < stack.back()){
-				stack.back()+=n;
-			}
-			else{
-				stack.pop_back();
-			}
-		}
+	int N, M;
+	cin >> N >> M;
+	queue<int> q;
+	for(int i = 0; i < N; i++){
+		int a;
+		cin >> a;
+		q.push(a);
 	}
-	int a = -1;
-	if(stack.size() >0){
-		a = stack.back();
+	for(int i = 0; i < M; i++){
+		int b = q.front();
+		q.pop();
+		q.push(b);
 	}
-	cout << stack.size() << " " << a;
+	for(int i = 0; i < N; i++){
+		cout<<q.front()<<" ";
+		q.pop();
+	}
+	cout<<endl;
 }
